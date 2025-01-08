@@ -1,0 +1,35 @@
+/* Add these styles */
+.react-flow__edge {
+  pointer-events: all;
+}
+
+.react-flow__edge .edge-foreignobject {
+  opacity: 0;
+  transition: opacity 0.2s;
+  pointer-events: all;
+}
+
+.react-flow__edge:hover .edge-foreignobject {
+  opacity: 1;
+}
+
+/* Override any animations for the delete button and icon */
+.edge-foreignobject div,
+.edge-foreignobject svg {
+  animation: none !important;
+  stroke-dasharray: none !important;
+  stroke-dashoffset: 0 !important;
+  transform: none !important;
+}
+
+/* Ensure the icon container is visible when parent is hovered */
+.edge-foreignobject div {
+  background: white;
+  border-radius: 50%;
+  border: 1px solid #b1b1b7;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 20px;
+  min-height: 20px;
+} 

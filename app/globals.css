@@ -1,0 +1,120 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Light mode theme */
+  --background: 0 0% 100%;
+  --foreground: 222.2 84% 4.9%;
+  
+  --card: 0 0% 100%;
+  --card-foreground: 222.2 84% 4.9%;
+  
+  --popover: 0 0% 100%;
+  --popover-foreground: 222.2 84% 4.9%;
+  
+  /* Primary brand color */
+  --primary: 152.9 60% 52.9%;
+  --primary-foreground: 355.7 100% 97.3%;
+  
+  /* Secondary color */
+  --secondary: 247.8 100% 70%;
+  --secondary-foreground: 222.2 47.4% 11.2%;
+  
+  --muted: 210 40% 96.1%;
+  --muted-foreground: 215.4 16.3% 46.9%;
+  
+  --accent: 210 40% 96.1%;
+  --accent-foreground: 222.2 47.4% 11.2%;
+  
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 210 40% 98%;
+  
+  --border: 214.3 31.8% 91.4%;
+  --input: 214.3 31.8% 91.4%;
+  --ring: 152.9 60% 52.9%;
+
+  --radius: 0.5rem;
+}
+
+/* body {
+  @apply bg-background text-foreground antialiased;
+  font-feature-settings: "rlig" 1, "calt" 1;
+  background-attachment: fixed;
+  min-height: 100vh;
+} */
+
+/* Modern scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsla(214, 3%, 54%, 25%);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(214, 3%, 54%, 50%);
+}
+
+/* Glass card effect */
+.glass-card {
+  @apply bg-slate-900/95 backdrop-blur-xl border border-slate-800/50;
+  background: linear-gradient(135deg,
+    hsla(222, 47%, 11%, 0.95),
+    hsla(224, 71%, 4%, 0.95)
+  );
+  box-shadow: 0 4px 24px -4px rgba(0, 0, 0, 0.3);
+}
+
+/* Hover effects */
+.hover-glow {
+  @apply transition-all duration-300;
+}
+
+.hover-glow:hover {
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.2);
+  border-color: rgba(59, 130, 246, 0.4);
+}
+
+/* Button gradients */
+.gradient-button {
+  background: linear-gradient(135deg, 
+    hsl(217.2, 91.2%, 59.8%),
+    hsl(224.3, 76.3%, 48%)
+  );
+  transition: all 0.3s ease;
+}
+
+.gradient-button:hover {
+  background: linear-gradient(135deg,
+    hsl(217.2, 91.2%, 64.8%),
+    hsl(224.3, 76.3%, 53%)
+  );
+}
+
+/* Animations */
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Reports panel animation */
+@keyframes slide-in {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
+}
+
+.reports-panel-enter {
+  animation: slide-in 0.3s ease-out;
+}
