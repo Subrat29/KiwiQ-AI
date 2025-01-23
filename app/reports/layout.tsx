@@ -1,7 +1,5 @@
 "use client";
 
-import { Sidebar } from "@/components/layout/sidebar";
-
 export default function ReportsLayout({
   children,
 }: {
@@ -9,7 +7,6 @@ export default function ReportsLayout({
 }) {
   return (
     <div className="min-h-screen text-gray-800">
-      <Sidebar />
       {children}
     </div>
   );

@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Logo } from "@/components/layout/logo";
@@ -23,19 +22,23 @@ const menuItems = [
   { icon: Settings, label: "Setup", href: "/setup" }
 ];
 
-export function Sidebar() {
-  const [isCollapsed, setIsCollapsed] = useState(false);
+interface SidebarProps {
+  isCollapsed: boolean;
+  onToggleCollapse: () => void;
+}
+
+export function Sidebar({ isCollapsed, onToggleCollapse }: SidebarProps) {
   const router = useRouter();
   const pathname = usePathname();
 
   return (
-    <div
+    <aside
       className={cn(
-        "fixed left-0 top-0 h-screen transition-all duration-300 border-r border-gray-200",
+        "fixed left-0 top-0 h-screen bg-white border-r border-gray-200 transition-all duration-300 z-20",
         isCollapsed ? "w-16" : "w-64"
       )}
     >
-      <div className="flex items-center justify-between p-2 border-zinc-800">
+      <div className="flex items-center justify-between p-4 border-b border-gray-200">
         {!isCollapsed ? (
           <Logo />
         ) : (
@@ -43,9 +46,9 @@ export function Sidebar() {
         )}
         <Button
           variant="ghost"
-          size="sm"
-          className=" text-gray-500 hover:text-gray-800 hover:bg-gray-100"
-          onClick={() => setIsCollapsed(!isCollapsed)}
+          size="icon"
+          className="text-gray-500 hover:text-gray-800 hover:bg-gray-100"
+          onClick={onToggleCollapse}
         >
           {isCollapsed ? <Menu className="h-5 w-5" /> : <ChevronLeft className="h-4 w-4" />}
         </Button>
@@ -58,7 +61,8 @@ export function Sidebar() {
             variant="ghost"
             className={cn(
               "w-full justify-start px-3 py-2 text-gray-600 hover:text-gray-800 hover:bg-gray-100",
-              pathname?.startsWith(item.href) && "bg-gray-200 text-gray-800", isCollapsed && "text-center justify-center items-center p-0"
+              pathname?.startsWith(item.href) && "bg-gray-200 text-gray-800",
+              isCollapsed && "justify-center p-2"
             )}
             onClick={() => router.push(item.href)}
           >
@@ -69,6 +73,6 @@ export function Sidebar() {
           </Button>
         ))}
       </nav>
-    </div>
+    </aside>
   );
 }

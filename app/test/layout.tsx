@@ -1,8 +1,8 @@
 "use client";
 
-// import { Sidebar } from "@/components/layout/sidebar";
+import { Sidebar } from "@/components/layout/sidebar";
 
-export default function AgentsLayout({
+export default function TestLayout({
   children,
 }: {
   children: React.ReactNode;
