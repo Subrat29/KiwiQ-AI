@@ -52,7 +52,7 @@ export default function AgentsPage() {
               Create and manage your intelligent agents
             </p>
           </div>
-          <div className="flex gap-3">
+          {/* <div className="flex gap-3">
             <Button
               variant="outline"
               onClick={() => router.push("/agents/skills")}
@@ -68,10 +68,10 @@ export default function AgentsPage() {
               <Plus className="w-4 h-4 mr-2" />
               New Agent
             </Button>
-          </div>
+          </div> */}
         </div>
 
-        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+        {/* <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
           {agentCategories.map((category) => (
             <Card
               key={category.title}
@@ -102,7 +102,8 @@ export default function AgentsPage() {
               </Link>
             </Card>
           ))}
-        </div>
+        </div> */}
+
         <div className="space-y-6">
           <h2 className="text-xl font-semibold text-gray-900">Recent Agents</h2>
           <AgentGrid />

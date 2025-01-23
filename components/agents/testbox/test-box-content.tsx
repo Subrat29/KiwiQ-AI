@@ -1,10 +1,11 @@
 "use client";
 
+import { useState } from "react";
+import { ResizablePanelGroup, ResizablePanel, ResizableHandle } from "@/components/ui/resizable";
 import { InputPanel } from "./panels/input-panel";
 import { ExecutionPanel } from "./panels/execution-panel";
 import { OutputPanel } from "./panels/output-panel";
 import { Agent } from "@/types/agents";
-import { useState } from "react";
 import { TestResult } from "@/types/testbox";
 
 interface TestBoxContentProps {
@@ -36,10 +37,24 @@ export function TestBoxContent({ agent }: TestBoxContentProps) {
   };
 
   return (
-    <div className="flex-1 flex">
-      <InputPanel onExecute={handleExecute} />
-      <ExecutionPanel isExecuting={isExecuting} agent={agent} />
-      <OutputPanel results={results} />
-    </div>
+    <ResizablePanelGroup direction="horizontal" className="h-full">
+      <ResizablePanel defaultSize={30} minSize={30}>
+        <ResizablePanelGroup direction="vertical">
+          <ResizablePanel defaultSize={50}>
+            <InputPanel onExecute={handleExecute} />
+          </ResizablePanel>
+          <ResizableHandle />
+          <ResizablePanel defaultSize={50} minSize={10}>
+            <ExecutionPanel isExecuting={isExecuting} agent={agent} />
+          </ResizablePanel>
+        </ResizablePanelGroup>
+      </ResizablePanel>
+      
+      <ResizableHandle />
+      
+      <ResizablePanel defaultSize={70} minSize={40}>
+        <OutputPanel results={results} />
+      </ResizablePanel>
+    </ResizablePanelGroup>
   );
 }
