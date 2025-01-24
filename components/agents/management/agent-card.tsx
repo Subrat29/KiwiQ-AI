@@ -77,7 +77,7 @@ export function AgentCard({ agent }: AgentCardProps) {
           variant="outline"
           size="sm"
           className="flex-1 bg-transparent hover:bg-transparent hover:shadow-md"
-          // onClick={() => router.push(`/agents/${agent.id}/configure`)}
+          onClick={() => router.push(`/agents/${agent.id}/configure`)}
         >
           <Settings className="w-4 h-4 mr-2" />
           Configure
