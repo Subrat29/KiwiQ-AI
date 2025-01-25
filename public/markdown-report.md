@@ -2,7 +2,7 @@
 
 ## Overview Placeholder
 
-This document is intended to test **advanced markdown rendering features**. Below you'll find diverse markdown elements with *placeholder content* to evaluate all rendering scenarios.
+This document is intended to test **advanced markdown rendering features**. Below you'll find diverse markdown elements with _placeholder content_ to evaluate all rendering scenarios.
 
 ---
 
@@ -11,9 +11,9 @@ This document is intended to test **advanced markdown rendering features**. Belo
 This is a test of different **text styles**, including:
 
 - **Bold Placeholder**
-- *Italic Placeholder*
+- _Italic Placeholder_
 - ~~Strikethrough Placeholder~~
-- ***Bold and Italic Placeholder***
+- **_Bold and Italic Placeholder_**
 - `Inline Code Placeholder`
 
 ---
@@ -23,45 +23,45 @@ This is a test of different **text styles**, including:
 ### Unordered List
 
 - First-level Item Placeholder
-    - Second-level Item Placeholder
-        - Third-level Item Placeholder
-            - Fourth-level Item Placeholder
+  - Second-level Item Placeholder
+    - Third-level Item Placeholder
+      - Fourth-level Item Placeholder
 - Another First-level Item Placeholder
 
 ### Ordered List
 
 1. First Item Placeholder
 2. Second Item Placeholder
-    1. Nested First Item Placeholder
-    2. Nested Second Item Placeholder
+   1. Nested First Item Placeholder
+   2. Nested Second Item Placeholder
 3. Third Item Placeholder
 
 ### Mixed Lists
 
 1. Ordered Item Placeholder
-    - Unordered Sub-item Placeholder
-        1. Ordered Sub-sub-item Placeholder
-        2. Ordered Sub-sub-item Placeholder
-    - Another Unordered Sub-item Placeholder
+   - Unordered Sub-item Placeholder
+     1. Ordered Sub-sub-item Placeholder
+     2. Ordered Sub-sub-item Placeholder
+   - Another Unordered Sub-item Placeholder
 
 ---
 
 ## Tables with Advanced Layouts
 
-| **Feature** | **Description** | **Status** |
-| --- | --- | --- |
-| Placeholder Feature | Brief description placeholder | ✅ Supported |
-| Example Element | Another description placeholder | 🛑 Not Supported |
-| Testing Row | Testing table rendering | ⚠️ Experimental |
+| **Feature**         | **Description**                 | **Status**       |
+| ------------------- | ------------------------------- | ---------------- |
+| Placeholder Feature | Brief description placeholder   | ✅ Supported     |
+| Example Element     | Another description placeholder | 🛑 Not Supported |
+| Testing Row         | Testing table rendering         | ⚠️ Experimental  |
 
 ### Nested Table Placeholder
 
-| Header 1 | Header 2 | Header 3 |
-| --- | --- | --- |
-| Row 1 | Row 2 | Row 3 |
-| **Nested Table:** |  |  |
-| **Sub-Header 1** | **Sub-Header 2** | **Sub-Header 3** |
-| Value 1 | Value 2 | Value 3 |
+| Header 1          | Header 2         | Header 3         |
+| ----------------- | ---------------- | ---------------- |
+| Row 1             | Row 2            | Row 3            |
+| **Nested Table:** |                  |                  |
+| **Sub-Header 1**  | **Sub-Header 2** | **Sub-Header 3** |
+| Value 1           | Value 2          | Value 3          |
 
 ---
 
@@ -78,8 +78,7 @@ https://via.placeholder.com/200
 ### Video Embed Placeholder
 
 > Video Placeholder (Requires frontend support for embedding):
-[Video Embed Placeholder - <https://youtu.be/dQw4w9WgXcQ>]
-> 
+> [Video Embed Placeholder - <https://youtu.be/dQw4w9WgXcQ>]
 
 ---
 
@@ -103,7 +102,6 @@ This is a placeholder for content inside a collapsible section.
 function placeholderFunction() {
   return "JavaScript code block placeholder";
 }
-
 ```
 
 ### Python Placeholder
@@ -128,10 +126,8 @@ echo "This is a Bash script example"
 ## Blockquotes and Callouts
 
 > Callout Title Placeholder
-> 
-> 
+>
 > **Note**: This blockquote is styled as a callout. Use this for important placeholder content.
-> 
 
 ---
 
@@ -139,15 +135,15 @@ echo "This is a Bash script example"
 
 ### Standard Task List
 
-- [ ]  Task Placeholder 1
-- [x]  Completed Task Placeholder
-- [ ]  Task Placeholder 2
+- [ ] Task Placeholder 1
+- [x] Completed Task Placeholder
+- [ ] Task Placeholder 2
 
 ### Nested Task List
 
-- [ ]  Parent Task Placeholder
-    - [ ]  Sub-task Placeholder
-    - [x]  Completed Sub-task Placeholder
+- [ ] Parent Task Placeholder
+  - [ ] Sub-task Placeholder
+  - [x] Completed Sub-task Placeholder
 
 ---
 
@@ -159,7 +155,7 @@ Euler's identity: $e^{i\pi} + 1 = 0$
 
 ### Block Math
 
-f(x)=∫−∞∞e−x2dxf(x) = \int_{-\infty}^\infty e^{-x^2} dx
+f(x)=∫−∞∞e−x2dxf(x) = \int\_{-\infty}^\infty e^{-x^2} dx
 
 ---
 
@@ -207,22 +203,19 @@ Here's a link to a [Reference Placeholder](https://example.com/).
 ### Nested Lists with Quotes
 
 1. Ordered List Item Placeholder
-    - Unordered Sub-item Placeholder
-        
-        > Note: This is a nested blockquote inside the list.
-        > 
+   - Unordered Sub-item Placeholder
+     > Note: This is a nested blockquote inside the list.
 2. Another Ordered Item Placeholder
-    - Unordered Sub-item Placeholder
-        
-        > Tip: Another nested blockquote example.
-        > 
+   - Unordered Sub-item Placeholder
+     > Tip: Another nested blockquote example.
 
 ---
 
 ### Hovercards and Tooltips
 
 - **Example**:
-    - Example Ad IDs: `524306596`, `548581306`, `560453526`
+  - Example Ad IDs: `524306596`, `548581306`, `560453526`
+
 ---
 
 ## End of Test Markdown
@@ -256,17 +249,16 @@ This report showcases various chart types with improved visual appeal and approp
 }
 </chart>
 
-## Customer Satisfaction Trends
+## Customer Satisfaction Trends- Multiple Devices
 
-<chart type="line" width="100%" height="250px" colorScheme="green" title="Customer Satisfaction Score" description="Monthly average satisfaction scores (out of 10)">
+<chart type="line" lines="desktop,mobile,tablet" colorScheme="blue,green,red", description="Customer satisfaction trends across multiple devices" title="Customer Satisfaction Trends" width="100%" height="300px">
 {
   "data": [
-    { "name": "January", "value": 7.2 },
-    { "name": "February", "value": 7.5 },
-    { "name": "March", "value": 7.8 },
-    { "name": "April", "value": 8.1 },
-    { "name": "May", "value": 8.3 },
-    { "name": "June", "value": 8.5 }
+    {"name": "Jan", "desktop": 186, "mobile": 80, "tablet": 120},
+    {"name": "Feb", "desktop": 305, "mobile": 200, "tablet": 150},
+    {"name": "Mar", "desktop": 400, "mobile": 300, "tablet": 250},
+    {"name": "Apr", "desktop": 500, "mobile": 400, "tablet": 300},
+    {"name": "May", "desktop": 600, "mobile": 500, "tablet": 400},
   ]
 }
 </chart>

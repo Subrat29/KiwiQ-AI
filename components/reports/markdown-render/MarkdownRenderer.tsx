@@ -148,13 +148,15 @@ const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content, documentId
         renderedParts.push(
           <ChartRenderer
             key={`chart-${i}`}
+            colorScheme={charts[i].colorScheme}
+            data={charts[i].data}
+            description={charts[i].description}
+            height={charts[i].height}
+            lines={charts[i].lines}
             type={charts[i].type}
             width={charts[i].width}
-            height={charts[i].height}
-            colorScheme={charts[i].colorScheme}
             xAxis={charts[i].xAxis}
             yAxis={charts[i].yAxis}
-            data={charts[i].data}
           />,
         )
       }

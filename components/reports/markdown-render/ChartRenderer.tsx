@@ -18,19 +18,20 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter }
 import { ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/ui/chart"
 import { TrendingUp, TrendingDown } from "lucide-react"
 
-interface ChartData {
+interface LineData {
   name: string
-  value: number
+  [key: string]: number | string
 }
 
 interface ChartProps {
   type: string
   width?: string
   height?: string
-  colorScheme?: string
+  colorScheme?: string[]
   xAxis?: string
   yAxis?: string
-  data: ChartData[]
+  data: LineData[]
+  lines?: string[]
   title?: string
   description?: string
 }
@@ -43,23 +44,29 @@ const ChartRenderer: React.FC<ChartProps> = ({
   xAxis,
   yAxis,
   data,
+  lines,
   title,
   description,
 }) => {
-  const chartConfig = {
-    value: {
-      label: "Value",
-      color: colorScheme || "hsl(var(--chart-1))",
-    },
-  }
-
-  const colors = [
+  const defaultColors = [
     "hsl(var(--chart-1))",
     "hsl(var(--chart-2))",
     "hsl(var(--chart-3))",
     "hsl(var(--chart-4))",
     "hsl(var(--chart-5))",
   ]
+
+  const colors = colorScheme || defaultColors
+
+  const chartConfig: { [key: string]: { label: string, color: string } } = lines ? 
+    lines.reduce((config, line, index) => ({
+      ...config,
+      [line]: {
+        label: line.charAt(0).toUpperCase() + line.slice(1),
+        color: colors[index % colors.length],
+      }
+    }), {}) : 
+    { value: { label: "Value", color: colors[0] } }
 
   const renderChart = () => {
     switch (type) {
@@ -70,7 +77,7 @@ const ChartRenderer: React.FC<ChartProps> = ({
             <XAxis dataKey="name" tickLine={false} axisLine={false} tickFormatter={(value) => value.slice(0, 3)} />
             <YAxis tickLine={false} axisLine={false} />
             <ChartTooltip content={<ChartTooltipContent />} cursor={false} />
-            <Bar dataKey="value" fill={`var(--color-${colorScheme || "value"})`} radius={[4, 4, 0, 0]}>
+            <Bar dataKey="value" fill={colors[0]} radius={[4, 4, 0, 0]}>
               <LabelList dataKey="value" position="top" className="fill-foreground" />
             </Bar>
           </BarChart>
@@ -78,19 +85,21 @@ const ChartRenderer: React.FC<ChartProps> = ({
       case "line":
         return (
           <LineChart data={data}>
-            <CartesianGrid vertical={false} />
+            <CartesianGrid strokeDasharray="3 3" />
             <XAxis dataKey="name" tickLine={false} axisLine={false} tickFormatter={(value) => value.slice(0, 3)} />
             <YAxis tickLine={false} axisLine={false} />
-            <ChartTooltip content={<ChartTooltipContent />} cursor={false} />
-            <Line
-              type="monotone"
-              dataKey="value"
-              stroke={`var(--color-${colorScheme || "value"})`}
-              strokeWidth={2}
-              dot={{ fill: `var(--color-${colorScheme || "value"})` }}
-            >
-              <LabelList dataKey="value" position="top" className="fill-foreground" />
-            </Line>
+            <ChartTooltip content={<ChartTooltipContent />} />
+            {lines && lines.map((line, index) => (
+              <Line
+                key={line}
+                type="monotone"
+                dataKey={line}
+                stroke={chartConfig[line].color}
+                strokeWidth={2}
+                dot={{ fill: chartConfig[line].color, r: 4 }}
+                activeDot={{ r: 6 }}
+              />
+            ))}
           </LineChart>
         )
       case "pie":
@@ -109,18 +118,23 @@ const ChartRenderer: React.FC<ChartProps> = ({
     }
   }
 
-  const getTrend = () => {
+  const getTrend = (dataKey?: string) => {
     if (data.length < 2) return null
-    const lastValue = data[data.length - 1].value
-    const secondLastValue = data[data.length - 2].value
-    const trend = ((lastValue - secondLastValue) / secondLastValue) * 100
+    
+    const lineToCheck = dataKey || 'value'
+    const lastValue = data[data.length - 1][lineToCheck]
+    const secondLastValue = data[data.length - 2][lineToCheck]
+    
+    const trend = ((Number(lastValue) - Number(secondLastValue)) / Number(secondLastValue)) * 100
     return {
       value: Math.abs(trend).toFixed(1),
       direction: trend >= 0 ? "up" : "down",
     }
   }
 
-  const trend = getTrend()
+  const trend = getTrend(lines ? lines[0] : undefined)
+
+  console.log("ChartRenderer", { type, width, height, colorScheme, xAxis, yAxis, data, lines, title, description })
 
   return (
     <Card className="w-full max-w-lg mx-auto">
@@ -153,4 +167,3 @@ const ChartRenderer: React.FC<ChartProps> = ({
 }
 
 export default ChartRenderer
-
