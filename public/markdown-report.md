@@ -234,3 +234,54 @@ Congratulations! You have reached the end of this placeholder markdown document.
 This extended markdown sample includes a wide array of elements to thoroughly test your frontend markdown rendering. Let me know if you need more complex examples or specific use cases!
 
 ```
+
+---
+
+# Sample Report with Enhanced Charts
+
+This report showcases various chart types with improved visual appeal and appropriate sizing.
+
+## Monthly Sales Performance
+
+<chart type="bar" width="100%" height="250px" colorScheme="blue" title="Monthly Sales" description="Sales data for the first half of 2024">
+{
+  "data": [
+    { "name": "January", "value": 5000 },
+    { "name": "February", "value": 7500 },
+    { "name": "March", "value": 6800 },
+    { "name": "April", "value": 9200 },
+    { "name": "May", "value": 8100 },
+    { "name": "June", "value": 10500 }
+  ]
+}
+</chart>
+
+## Customer Satisfaction Trends
+
+<chart type="line" width="100%" height="250px" colorScheme="green" title="Customer Satisfaction Score" description="Monthly average satisfaction scores (out of 10)">
+{
+  "data": [
+    { "name": "January", "value": 7.2 },
+    { "name": "February", "value": 7.5 },
+    { "name": "March", "value": 7.8 },
+    { "name": "April", "value": 8.1 },
+    { "name": "May", "value": 8.3 },
+    { "name": "June", "value": 8.5 }
+  ]
+}
+</chart>
+
+## Market Share Distribution
+
+<chart type="pie" width="100%" height="300px" title="Market Share by Product Category" description="Distribution of market share across product categories">
+{
+  "data": [
+    { "name": "Electronics", "value": 35 },
+    { "name": "Clothing", "value": 28 },
+    { "name": "Home & Garden", "value": 22 },
+    { "name": "Sports & Outdoors", "value": 15 }
+  ]
+}
+</chart>
+
+This concludes our sample report with enhanced, colorful charts.
