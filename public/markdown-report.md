@@ -254,11 +254,11 @@ This report showcases various chart types with improved visual appeal and approp
 <chart type="line" lines="desktop,mobile,tablet" colorScheme="blue,green,red", description="Customer satisfaction trends across multiple devices" title="Customer Satisfaction Trends" width="100%" height="300px">
 {
   "data": [
-    {"name": "Jan", "desktop": 186, "mobile": 80, "tablet": 120},
-    {"name": "Feb", "desktop": 305, "mobile": 200, "tablet": 150},
-    {"name": "Mar", "desktop": 400, "mobile": 300, "tablet": 250},
-    {"name": "Apr", "desktop": 500, "mobile": 400, "tablet": 300},
-    {"name": "May", "desktop": 600, "mobile": 500, "tablet": 400},
+    {"name": "Jan", "desktop": "186", "mobile": "80", "tablet": "120"},
+    {"name": "Feb", "desktop": "305", "mobile": "200", "tablet": "150"},
+    {"name": "Mar", "desktop": "400", "mobile": "300", "tablet": "250"},
+    {"name": "Apr", "desktop": "500", "mobile": "400", "tablet": "300"},
+    {"name": "May", "desktop": "600", "mobile": "500", "tablet": "400"}
   ]
 }
 </chart>
